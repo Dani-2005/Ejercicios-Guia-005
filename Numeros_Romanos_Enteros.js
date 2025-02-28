@@ -31,4 +31,4 @@ function RomanoADecimal(string) {
     return numero_decimal
 }
 
-console.log(RomanoADecimal("MMV"));
+console.log(RomanoADecimal("XIV"));
