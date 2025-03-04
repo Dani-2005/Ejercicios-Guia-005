@@ -36,20 +36,42 @@ var productos = [
     }
 ]
 
-function controlStock(array, producto, cantidad){
-    for(let i = 0; i < array.length; i++) {
-        if(array[i].Nombre === producto) {
-            if (array[i].Stock < cantidad) {
-                console.log("Stock insuficiente.");  
-            } else {
-                console.log("Stock suficiente.");
-                array[i].Stock -= cantidad
-                console.log(productos);  
-            }
-            return;
-        }
-    }
-    console.log("Producto no encontrado.");
-} 
 
-controlStock(productos, "Mouse", 3)
+function controlStock2 (array, productoIngresado, cantidad) {
+    const productoEncontrado = array.find((producto) => productoIngresado === producto.Nombre) 
+
+    if (productoEncontrado) {
+        if (cantidad > productoEncontrado.Stock) {
+            console.log("Stock insuficiente."); 
+        } else {
+            console.log("Stock suficiente.");
+            productoEncontrado.Stock -= cantidad
+            console.log(array);  
+        }
+    } else {
+        console.log("Producto no encontrado.");
+        
+    }
+}
+
+controlStock2(productos, "Cargador", 4)
+
+
+
+// function controlStock(array, producto, cantidad){
+//     for(let i = 0; i < array.length; i++) {
+//         if(array[i].Nombre === producto) {
+//             if (array[i].Stock < cantidad) {
+//                 console.log("Stock insuficiente.");  
+//             } else {
+//                 console.log("Stock suficiente.");
+//                 array[i].Stock -= cantidad
+//                 console.log(productos);  
+//             }
+//             return;
+//         }
+//     }
+//     console.log("Producto no encontrado.");
+// } 
+
+// controlStock(productos, "Mouse", 3)
