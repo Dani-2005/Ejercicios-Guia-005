@@ -23,19 +23,37 @@ var estudiantes = [
     }
 ]
 
-function calcularNota(array){
-    for (let i = 0; i < array.length; i++) {
-        let suma = 0;
-        for (let j = 0; j < array[i].Notas.length; j++) {
-            suma += array[i].Notas[j];
-        } 
-        let promedio = suma / array[i].Notas.length;
+
+function calcularNota(array) {
+    array.forEach(estudiante => {
+        let sumaNotas = estudiante.Notas.reduce((acumulador, nota) => acumulador + nota, 0)
+        let promedio = sumaNotas / estudiante.Notas.length
+
         if (promedio >= 10) {
-            console.log(`${array[i].Nombre} ha aprobado con ${promedio}`);
+            console.log(`${estudiante.Nombre} ha aprobado con ${promedio}`);
         } else {
-            console.log(`${array[i].Nombre} ha reprobado con ${promedio}`);
+            console.log(`${estudiante.Nombre} ha reprobado con ${promedio}`);
         }
-    }
+    })
 }
 
-calcularNota(estudiantes);
+calcularNota(estudiantes)
+
+
+
+// function calcularNota(array){
+//     for (let i = 0; i < array.length; i++) {
+//         let suma = 0;
+//         for (let j = 0; j < array[i].Notas.length; j++) {
+//             suma += array[i].Notas[j];
+//         } 
+//         let promedio = suma / array[i].Notas.length;
+//         if (promedio >= 10) {
+//             console.log(`${array[i].Nombre} ha aprobado con ${promedio}`);
+//         } else {
+//             console.log(`${array[i].Nombre} ha reprobado con ${promedio}`);
+//         }
+//     }
+// }
+
+// calcularNota(estudiantes);
